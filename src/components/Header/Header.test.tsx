@@ -1,6 +1,6 @@
+import { renderWithProviders } from "../../testUtils/testUtils";
 import Header from "./Header";
 import { screen } from "@testing-library/react";
-import renderWithProviders from "../../testUtils/testUtils";
 
 describe("Given a Header component", () => {
   describe("When it is rendered", () => {
