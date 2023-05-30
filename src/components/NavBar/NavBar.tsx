@@ -15,13 +15,22 @@ const NavBar = (): React.ReactElement => {
       </NavLink>
       <NavLink to="/add" aria-label="add" title="add">
         <img
-          className="navegation-icon navegation navegation-icon__select"
+          className="navegation-icon navegation-icon__select"
           src="/images/add.svg"
           alt="add page"
           width="28"
           height="28"
         />
       </NavLink>
+      <button className="button__logout">
+        <img
+          className="navegation-icon navegation-icon__select"
+          src="/images/logout.svg"
+          alt="logout"
+          width="22"
+          height="28"
+        />
+      </button>
     </NavBarStyled>
   );
 };
