@@ -16,7 +16,6 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  padding: 20px 20px 20px 20px;
   
 }
 
@@ -41,7 +40,6 @@ button {
   font: inherit;
   border: none;
   background-color: transparent;
-  cursor: pointer;
 }
 
 input {

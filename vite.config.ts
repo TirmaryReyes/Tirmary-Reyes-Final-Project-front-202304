@@ -22,6 +22,7 @@ export default defineConfig({
         "src/setupTests.ts",
         "src/main.tsx",
         "src/store/index.ts",
+        "src/appRouter.tsx",
       ],
     },
   },
