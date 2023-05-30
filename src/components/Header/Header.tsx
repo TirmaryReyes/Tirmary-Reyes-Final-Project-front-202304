@@ -6,7 +6,7 @@ const Header = (): React.ReactElement => {
       <img
         className="image-logo"
         src="/images/logo-sand-rose.svg"
-        alt="SandRose-log"
+        alt="Sand Rose logo"
         width="230"
         height="90"
       ></img>
