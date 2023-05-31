@@ -19,10 +19,9 @@ declare module "styled-components" {
     };
 
     fontWeigth: {
-      ligth: string;
-      regular: string;
-      medium: string;
-      bold: string;
+      regular: number;
+      medium: number;
+      bold: number;
     };
 
     spacing: {
