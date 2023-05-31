@@ -1,4 +1,4 @@
-import { renderWithProviders } from "../../testUtils/testUtils";
+import { renderWithProviders, wrapWithRouter } from "../../testUtils/testUtils";
 import Header from "./Header";
 import { screen } from "@testing-library/react";
 
@@ -7,7 +7,7 @@ describe("Given a Header component", () => {
     test("Then it should show the Sand Rose", () => {
       const expectedAltText = "Sand Rose logo";
 
-      renderWithProviders(<Header />);
+      renderWithProviders(wrapWithRouter(<Header />));
 
       const altText = screen.getByAltText(expectedAltText);
 

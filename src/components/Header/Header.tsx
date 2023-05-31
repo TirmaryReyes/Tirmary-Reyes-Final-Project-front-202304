@@ -1,3 +1,4 @@
+import NavBar from "../NavBar/NavBar";
 import HeaderStyled from "./HeaderStyled";
 
 const Header = (): React.ReactElement => {
@@ -10,6 +11,7 @@ const Header = (): React.ReactElement => {
         width="230"
         height="90"
       ></img>
+      <NavBar />
     </HeaderStyled>
   );
 };

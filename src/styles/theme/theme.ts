@@ -18,10 +18,9 @@ const theme: DefaultTheme = {
   },
 
   fontWeigth: {
-    ligth: "300",
-    regular: "400",
-    medium: "500",
-    bold: "700",
+    regular: 400,
+    medium: 500,
+    bold: 700,
   },
 
   spacing: {
