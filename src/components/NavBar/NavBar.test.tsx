@@ -8,7 +8,7 @@ describe("Given a NavBar component", () => {
       renderWithProviders(wrapWithRouter(<NavBar />));
 
       const expectedLink = "add";
-      const expectedText = "home";
+      const expectedText = "home page";
 
       const createLink = screen.getByRole("link", { name: expectedLink });
       const homeLink = screen.getByRole("link", { name: expectedText });
