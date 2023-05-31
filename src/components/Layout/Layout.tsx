@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import ContainerStyled from "../shared/containerStyled";
 import Header from "../Header/Header";
 import NavBar from "../NavBar/NavBar";
+import ContainerStyled from "../shared/ContainerStyled";
 
 const Layout = (): React.ReactElement => {
   return (
