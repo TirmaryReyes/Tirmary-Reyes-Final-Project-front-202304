@@ -1,6 +1,6 @@
 import { renderWithProviders, wrapWithRouter } from "../../testUtils/testUtils";
-import Layout from "./Layout";
 import { screen } from "@testing-library/react";
+import Layout from "./Layout";
 
 describe("Given a Layout component", () => {
   describe("When it is rendered", () => {

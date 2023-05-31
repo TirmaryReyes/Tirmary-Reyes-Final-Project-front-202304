@@ -7,8 +7,11 @@ describe("Given a NavBar component", () => {
     test("Then it should show 2 links: login, add and home", () => {
       renderWithProviders(wrapWithRouter(<NavBar />));
 
-      const createLink = screen.getByRole("link", { name: "add" });
-      const homeLink = screen.getByRole("link", { name: "home" });
+      const expectedLink = "add";
+      const expectedText = "home";
+
+      const createLink = screen.getByRole("link", { name: expectedLink });
+      const homeLink = screen.getByRole("link", { name: expectedText });
 
       expect(createLink).toBeInTheDocument();
       expect(homeLink).toBeInTheDocument();
