@@ -22,17 +22,6 @@ const NavBar = (): React.ReactElement => {
           height="28"
         />
       </NavLink>
-
-      <button className="button__logout">
-        <img
-          className="navegation-icon"
-          src="/images/logout.svg"
-          alt="logout"
-          width="28"
-          height="28"
-        />
-      </button>
-
       <NavLink to="/login" aria-label="login" title="login">
         <img
           className="navegation-icon navegation-icon__select"

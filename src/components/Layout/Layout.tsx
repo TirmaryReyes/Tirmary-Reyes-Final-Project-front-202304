@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
-import ContainerStyled from "../shared/ContainerStyled";
+import LayoutStyled from "./LayoutStyled";
 
 const Layout = (): React.ReactElement => {
   return (
-    <ContainerStyled>
+    <LayoutStyled>
       <Header />
       <Outlet />
-    </ContainerStyled>
+    </LayoutStyled>
   );
 };
 

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const ContainerStyled = styled.div`
+const LayoutStyled = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   padding: 24px;
 `;
 
-export default ContainerStyled;
+export default LayoutStyled;
