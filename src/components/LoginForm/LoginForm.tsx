@@ -28,24 +28,24 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
 
   return (
     <LoginFormStyled onSubmit={handleOnClick}>
-      <div className="form-control">
-        <label className="loginForm-label" htmlFor="username">
+      <div className="login-form-control">
+        <label className="login-form-control__label" htmlFor="username">
           Username
         </label>
         <input
           type="text"
-          className="loginForm-input"
+          className="login-form-control__input"
           id="username"
           onChange={onChangeInputs}
         />
       </div>
       <div className="form-control">
-        <label className="loginform-label" htmlFor="password">
+        <label className="login-form__label" htmlFor="password">
           Password
         </label>
         <input
           type="password"
-          className="loginForm-input"
+          className="login-Form-control__input"
           id="password"
           onChange={onChangeInputs}
         />
@@ -53,7 +53,7 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
       <div>
         <button
           type="submit"
-          className="loginForm-button"
+          className="login-form__button"
           disabled={isDisabled}
           onClick={handleOnSubmit}
         >

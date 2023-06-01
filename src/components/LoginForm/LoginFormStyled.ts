@@ -10,7 +10,7 @@ const LoginFormStyled = styled.form`
   margin-top: 15px;
   color: ${(props) => props.theme.colors.primary};
 
-  .loginForm-input {
+  .login-form-control__input {
     margin-top: 10px;
     padding: 10px;
     border-radius: 15px;
@@ -18,7 +18,7 @@ const LoginFormStyled = styled.form`
     width: 267px;
   }
 
-  .loginForm-button {
+  .login-form__button {
     margin-top: 20px;
     background-color: ${(props) => props.theme.colors.primary};
     padding: 10px;

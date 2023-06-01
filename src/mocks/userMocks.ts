@@ -16,3 +16,5 @@ export const LoggedStateUserMock: UserStateStructure = {
   ...userTokenStructureMock,
   isLogged: true,
 };
+
+export const tokenMock = "849d0hd4s5jd6h6j6";
