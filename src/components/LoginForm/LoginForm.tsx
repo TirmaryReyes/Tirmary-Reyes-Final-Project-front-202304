@@ -13,7 +13,7 @@ const LoginForm = (): React.ReactElement => {
         <label className="loginform-label" htmlFor="password">
           Password
         </label>
-        <input type="text" className="loginForm-input" id="password" />
+        <input type="password" className="loginForm-input" id="password" />
       </div>
       <button type="submit" className="loginForm-button">
         Log in
