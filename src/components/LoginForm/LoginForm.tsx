@@ -39,13 +39,13 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
           onChange={onChangeInputs}
         />
       </div>
-      <div className="form-control">
+      <div className="login-form-control">
         <label className="login-form__label" htmlFor="password">
           Password
         </label>
         <input
           type="password"
-          className="login-Form-control__input"
+          className="login-form-control__input"
           id="password"
           onChange={onChangeInputs}
         />
