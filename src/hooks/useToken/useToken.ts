@@ -1,26 +1,18 @@
-import axios from "axios";
-import { useCallback } from "react";
-import { UserCredentials } from "../../store/user/types";
+import jwt_decode from "jwt-decode";
+import { UserTokenStructure } from "../../store/user/types";
 
-export const apiUrl = import.meta.env.VITE_APP_URL;
+const useToken = () => {
+  const getTokenData = (token: string): UserTokenStructure => {
+    const decodedToken: { sub: string; name: string } = jwt_decode(token);
+    const userLoggedData = {
+      id: decodedToken.sub,
+      name: decodedToken.name,
+      token,
+    };
 
-const useUser = () => {
-  const getUserToken = useCallback(
-    async (userCredentials: UserCredentials): Promise<string> => {
-      const {
-        data: { token },
-      } = await axios.post<{ token: string }>(
-        `${apiUrl}user/login`,
-        userCredentials
-      );
-      return token;
-    },
-    []
-  );
-
-  return {
-    getUserToken,
+    return userLoggedData;
   };
+  return { getTokenData };
 };
 
-export default useUser;
+export default useToken;
