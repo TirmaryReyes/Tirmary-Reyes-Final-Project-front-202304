@@ -16,6 +16,10 @@ const routes: RouteObject[] = [
           </Suspense>
         ),
       },
+      {
+        path: `*`,
+        element: <p></p>,
+      },
     ],
   },
 ];
