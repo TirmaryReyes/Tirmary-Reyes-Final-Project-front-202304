@@ -1,8 +1,9 @@
 import { useState } from "react";
 import LoginFormStyled from "./LoginFormStyled";
+import { UserCredentials } from "../../store/user/types";
 
 interface LoginFormProps {
-  handleOnSubmit: () => void;
+  handleOnSubmit: (userCredentials: UserCredentials) => void;
 }
 
 const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
@@ -20,11 +21,11 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
 
   const handleOnClick = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    handleOnSubmit();
+    handleOnSubmit(userData);
     setUserData(userData);
   };
 
-  const isDisabled = !userData.username || !userData.password;
+  const isDisabled = userData.username === "" || userData.password === "";
 
   return (
     <LoginFormStyled onSubmit={handleOnClick}>
@@ -51,12 +52,7 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
         />
       </div>
       <div>
-        <button
-          type="submit"
-          className="login-form__button"
-          disabled={isDisabled}
-          onClick={handleOnSubmit}
-        >
+        <button disabled={isDisabled} className="login-form__button">
           Log in
         </button>
       </div>

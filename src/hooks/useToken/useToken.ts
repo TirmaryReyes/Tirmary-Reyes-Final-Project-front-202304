@@ -10,7 +10,7 @@ const useUser = () => {
       const {
         data: { token },
       } = await axios.post<{ token: string }>(
-        `${apiUrl}/user/login`,
+        `${apiUrl}user/login`,
         userCredentials
       );
       return token;

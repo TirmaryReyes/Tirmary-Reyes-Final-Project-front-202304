@@ -27,6 +27,11 @@ const LoginFormStyled = styled.form`
     color: white;
     width: 145px;
     font-weight: bold;
+
+    :disabled {
+      background-color: ${(props) => props.theme.colors.secondaryLigth};
+      border: 2px solid ${(props) => props.theme.colors.secondaryLigth};
+    }
   }
 `;
 export default LoginFormStyled;
