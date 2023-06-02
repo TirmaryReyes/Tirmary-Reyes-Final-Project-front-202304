@@ -2,8 +2,8 @@ import {
   InitialStateUserMock,
   LoggedStateUserMock,
   userTokenStructureMock,
-} from "../../mocks/userMocks";
-import { loginUserActionCreator, userReducer } from "./userSlice";
+} from "../../../mocks/userMocks";
+import { loginUserActionCreator, userReducer } from "../userSlice";
 
 describe("Given a userReducer", () => {
   describe("When it receives an empty user state and a loginUser action with a user and its data", () => {
