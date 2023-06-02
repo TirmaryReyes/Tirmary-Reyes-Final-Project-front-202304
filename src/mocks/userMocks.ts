@@ -7,9 +7,10 @@ export const InitialStateUserMock: UserStateStructure = {
   isLogged: false,
 };
 export const userTokenStructureMock: UserTokenStructure = {
-  name: "Mario",
-  id: "5",
-  token: "849d0hd4s5jd6h6j6",
+  name: "admin",
+  id: "647083660ca1f98975830b0b",
+  token:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcwODM2NjBjYTFmOTg5NzU4MzBiMGIiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODU3MDA0NTF9.SQmMo1PUHezRuU1xm2fYacVWiSHRYvM3qdqbI3ygCA4",
 };
 
 export const LoggedStateUserMock: UserStateStructure = {
@@ -17,4 +18,5 @@ export const LoggedStateUserMock: UserStateStructure = {
   isLogged: true,
 };
 
-export const tokenMock = "849d0hd4s5jd6h6j6";
+export const tokenMock =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcwODM2NjBjYTFmOTg5NzU4MzBiMGIiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODU3MDA0NTF9.SQmMo1PUHezRuU1xm2fYacVWiSHRYvM3qdqbI3ygCA4";
