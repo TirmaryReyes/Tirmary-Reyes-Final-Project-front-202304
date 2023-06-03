@@ -6,6 +6,7 @@ import { UserCredentials } from "../../store/user/types";
 import LoginPageStyled from "./LoginPageStyled";
 import { loginUserActionCreator } from "../../store/user/userSlice";
 import LoginForm from "../../components/LoginForm/LoginForm";
+import paths from "../../routers/paths";
 
 const LoginPage = (): React.ReactElement => {
   const { getTokenData } = useToken();
@@ -19,7 +20,7 @@ const LoginPage = (): React.ReactElement => {
     if (token) {
       const userLoginData = await getTokenData(token);
       dispatch(loginUserActionCreator(userLoginData));
-      navigate("/home", { replace: true });
+      navigate(`${paths.home}`, { replace: true });
     }
   };
 

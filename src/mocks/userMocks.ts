@@ -13,15 +13,10 @@ export const userTokenStructureMock: UserTokenStructure = {
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcwODM2NjBjYTFmOTg5NzU4MzBiMGIiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODU3MDA0NTF9.SQmMo1PUHezRuU1xm2fYacVWiSHRYvM3qdqbI3ygCA4",
 };
 
-export const LoggedStateUserMock: UserStateStructure = {
+export const loggedStateUserMock: UserStateStructure = {
   ...userTokenStructureMock,
   isLogged: true,
 };
 
 export const tokenMock =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcwODM2NjBjYTFmOTg5NzU4MzBiMGIiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODU3MDA0NTF9.SQmMo1PUHezRuU1xm2fYacVWiSHRYvM3qdqbI3ygCA4";
-
-export const loggedUserDataMock: UserStateStructure = {
-  ...userTokenStructureMock,
-  isLogged: true,
-};

@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import NavBarStyled from "./NavBarStyled";
 import { logoutUserActionCreator } from "../../store/user/userSlice";
 import { useAppDispatch, useAppSelector } from "../../store";
+import paths from "../../routers/paths";
 
 const NavBar = (): React.ReactElement => {
   const isLogged = useAppSelector((state) => state.user.isLogged);
@@ -10,7 +11,7 @@ const NavBar = (): React.ReactElement => {
 
   const logoutOnClick = () => {
     dispatch(logoutUserActionCreator());
-    navigate("/login");
+    navigate(`${paths.home}`);
   };
 
   return (
@@ -35,7 +36,11 @@ const NavBar = (): React.ReactElement => {
       </NavLink>
 
       {isLogged ? (
-        <button className="button__logout" onClick={logoutOnClick}>
+        <button
+          className="button__logout"
+          aria-label="logout"
+          onClick={logoutOnClick}
+        >
           <img
             className="navegation-icon"
             src="/images/logout.svg"

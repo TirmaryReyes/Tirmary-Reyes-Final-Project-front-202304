@@ -1,6 +1,7 @@
 import axios from "axios";
 import { UserCredentials } from "../../store/user/types";
 import { useCallback } from "react";
+import paths from "../../routers/paths";
 
 export const apiUrl = import.meta.env.VITE_APP_URL;
 
@@ -9,7 +10,7 @@ const useUser = () => {
     async (userCredentials: UserCredentials): Promise<string> => {
       try {
         const { data } = await axios.post<{ token: string }>(
-          `${apiUrl}/user/login`,
+          `${apiUrl}${paths.user}${paths.login}`,
           userCredentials
         );
         return data.token;

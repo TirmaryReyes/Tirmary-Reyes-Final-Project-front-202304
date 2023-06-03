@@ -19,6 +19,7 @@ export default defineConfig({
         "**/*.test.{ts,tsx}",
         "**/types.ts",
         "**/*.d.ts",
+        "src/component/App",
         "src/setupTests.ts",
         "src/main.tsx",
         "src/routers/**",

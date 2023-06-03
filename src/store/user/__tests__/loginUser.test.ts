@@ -1,6 +1,6 @@
 import {
   InitialStateUserMock,
-  LoggedStateUserMock,
+  loggedStateUserMock,
   userTokenStructureMock,
 } from "../../../mocks/userMocks";
 import { loginUserActionCreator, userReducer } from "../userSlice";
@@ -10,7 +10,7 @@ describe("Given a userReducer", () => {
     test("Then it should return a new state with the user logged", () => {
       const currentUserState = InitialStateUserMock;
 
-      const expectedNewUserState = LoggedStateUserMock;
+      const expectedNewUserState = loggedStateUserMock;
 
       const newUserState = userReducer(
         currentUserState,
