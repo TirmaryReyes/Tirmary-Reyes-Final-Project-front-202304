@@ -16,7 +16,8 @@ export const plantsMocks: PlantDataStructure[] = [
   {
     id: " 647083660ca1f98975830b0b",
     name: "Tulip",
-    image: "https://tulip_flower.jpg",
+    image:
+      "https://cdn.discordapp.com/attachments/1096796306695008286/1115235435103404042/2021-hb-hot-care-for-aloe-plant-final-standard-00-00-34-20-still002-1619623336.jpg",
     type: "Liliaceae",
     size: "medium",
     hasFlowers: false,

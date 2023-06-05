@@ -20,7 +20,7 @@ const LoginPage = (): React.ReactElement => {
     if (token) {
       const userLoginData = await getTokenData(token);
       dispatch(loginUserActionCreator(userLoginData));
-      navigate(`${paths.home}`, { replace: true });
+      navigate(paths.home);
     }
   };
 
