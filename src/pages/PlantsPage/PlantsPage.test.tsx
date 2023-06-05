@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../testUtils/testUtils";
-import PlantsList from "./PlantsList";
+import PlantsList from "./PlantsPage";
 
 describe("Given a PlantsList page", () => {
   describe("When it is rendered", () => {
