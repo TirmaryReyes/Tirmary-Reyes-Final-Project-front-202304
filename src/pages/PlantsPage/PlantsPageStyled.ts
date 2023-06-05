@@ -5,6 +5,7 @@ const PlantsListStyled = styled.main`
   flex-direction: column;
   padding: 20px 20px 0px 0px;
   gap: 60px;
+  align-items: center;
   color: ${(props) => props.theme.colors.primary};
 
   .list-title {
