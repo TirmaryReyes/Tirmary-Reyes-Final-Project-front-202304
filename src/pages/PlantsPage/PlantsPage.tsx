@@ -1,10 +1,10 @@
-import { PlantCard } from "../../components/PlantCard/PlantCard.js";
+import PlantsList from "../../components/PlantsList/PlantsList.js";
 import { plantsMocks } from "../../mocks/plantsMocks.js";
 import { useAppDispatch } from "../../store/index.js";
 import { loadPlantsActionCreator } from "../../store/plant/plantSlice.js";
 import PlantsPageStyled from "./PlantsPageStyled.js";
 
-const PlantsList = (): React.ReactElement => {
+const PlantsPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
 
   dispatch(loadPlantsActionCreator(plantsMocks));
@@ -12,11 +12,9 @@ const PlantsList = (): React.ReactElement => {
   return (
     <PlantsPageStyled>
       <h1 className="list-title">Welcome to our plants list!</h1>
-      <PlantCard plant={plantsMocks[0]} />
-      <PlantCard plant={plantsMocks[0]} />
-      <PlantCard plant={plantsMocks[0]} />
+      <PlantsList />
     </PlantsPageStyled>
   );
 };
 
-export default PlantsList;
+export default PlantsPage;
