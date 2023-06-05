@@ -3,12 +3,12 @@ import styled from "styled-components";
 const PlantsListStyled = styled.main`
   display: flex;
   flex-direction: column;
-  padding: 20px 20px 0px 0px;
   gap: 60px;
   align-items: center;
   color: ${(props) => props.theme.colors.primary};
 
   .list-title {
+    margin-top: 20px;
     font-weight: bold;
     width: 230px;
     display: inline-block;

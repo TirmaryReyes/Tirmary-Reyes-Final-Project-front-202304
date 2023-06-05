@@ -1,3 +1,5 @@
+import ButtonStyled from "./ButtonStyled";
+
 interface ButtonProps {
   text: string;
   className?: string;
@@ -14,10 +16,14 @@ const Button = ({
   children,
 }: ButtonProps): React.ReactElement => {
   return (
-    <button aria-label={accesibility} onClick={onClick} className={className}>
+    <ButtonStyled
+      aria-label={accesibility}
+      onClick={onClick}
+      className={className}
+    >
       {text}
       {children}
-    </button>
+    </ButtonStyled>
   );
 };
 
