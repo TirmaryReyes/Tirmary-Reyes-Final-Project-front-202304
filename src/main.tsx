@@ -1,4 +1,5 @@
 import "@fontsource/montserrat";
+import "@fontsource/montserrat/700.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
