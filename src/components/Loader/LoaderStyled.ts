@@ -1,6 +1,17 @@
 import styled from "styled-components";
 
 const LoaderStyled = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(228 234 228 / 78%);
+  z-index: 1;
+
   .custom-loader {
     width: 50px;
     height: 50px;
