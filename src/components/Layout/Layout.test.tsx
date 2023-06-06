@@ -14,4 +14,17 @@ describe("Given a Layout component", () => {
       expect(altText).toBeInTheDocument();
     });
   });
+  describe("When it's being rendered, but it's experiencing significant delays in reaching the intended page", () => {
+    test("Then it should show a custom-loader", () => {
+      const expectedLabelText = "custom-loader";
+
+      renderWithProviders(wrapWithRouter(<Layout />), {
+        ui: { isLoading: true },
+      });
+
+      const loadingSpinner = screen.getByLabelText(expectedLabelText);
+
+      expect(loadingSpinner).toBeInTheDocument();
+    });
+  });
 });
