@@ -1,8 +1,10 @@
+import LoaderStyled from "./LoaderStyled";
+
 const Loader = (): React.ReactElement => {
   return (
-    <>
-      <span className="loader" aria-label="loader-animation"></span>
-    </>
+    <LoaderStyled>
+      <div className="custom-loader"></div>
+    </LoaderStyled>
   );
 };
 
