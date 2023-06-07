@@ -1,4 +1,4 @@
-interface ModalProps {
+export interface ModalProps {
   text: string;
   image: string;
   isError: boolean;
