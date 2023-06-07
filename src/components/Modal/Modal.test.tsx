@@ -26,7 +26,7 @@ describe("Given a Modal component", () => {
 
       const testStore = store.getState();
 
-      expect(testStore.ui.message).toBeFalsy();
+      expect(testStore.ui.modal.message).toBeFalsy();
     });
 
     test("Then it should a feedback Modal", () => {
