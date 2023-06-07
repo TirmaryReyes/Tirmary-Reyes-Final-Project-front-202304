@@ -1,17 +1,19 @@
-export interface ModalProps {
-  text: string;
-  image: string;
-  isError: boolean;
-}
+import { ModalStructure } from "../../store/ui/types";
+import { ModalStyled } from "./ModalStyled";
 
-const Modal = ({ text, image, isError }: ModalProps): React.ReactElement => {
+const Modal = ({ message, isError }: ModalStructure): React.ReactElement => {
   return (
-    <article className="modal" aria-label="feedback modal">
-      <img src={image} alt="feedback icon" />
-      <div className={`modal${isError ? "--error" : ""}`}></div>
-      <span>{text}</span>
-      <button className="modal__feedback-error-closed">Close</button>
-    </article>
+    <ModalStyled>
+      <div className={`modal modal${isError ? "--error" : "--success"}`}>
+        <img
+          src={isError ? "images/error-icon.svg" : "images/ok-icon.svg"}
+          alt="feedback icon"
+        />
+        <span className="modal__message">{message}</span>
+
+        <button className="modal__button">Close</button>
+      </div>
+    </ModalStyled>
   );
 };
 

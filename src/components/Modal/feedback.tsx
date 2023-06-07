@@ -1,43 +1,36 @@
-import { ModalProps } from "./Modal";
+import { ModalStructure } from "../../store/ui/types";
 
-export const addedModal: ModalProps = {
+export const addedModal: ModalStructure = {
   isError: false,
-  image: "src/images/ok-icon.svg",
-  text: "Plant added",
+  message: "Plant added",
 };
 
-export const editedModal: ModalProps = {
+export const editedModal: ModalStructure = {
   isError: false,
-  image: "src/images/ok-icon.svg",
-  text: "Plant edited",
+  message: "Plant edited",
 };
 
-export const removedModal: ModalProps = {
+export const removedModal: ModalStructure = {
   isError: false,
-  image: "src/images/ok-icon.svg",
-  text: "Plant removed",
+  message: "Plant removed",
 };
 
-export const notAddedModal: ModalProps = {
+export const notAddedModal: ModalStructure = {
   isError: true,
-  image: "src/images/error-icon.svg",
-  text: "Plant could not be added",
+  message: "Plant could not be added",
 };
 
-export const notEditModal: ModalProps = {
+export const notEditModal: ModalStructure = {
   isError: true,
-  image: "src/images/error-icon.svg",
-  text: "Plant could not be unedited",
+  message: "Plant could not be unedited",
 };
 
-export const notremovedModal: ModalProps = {
+export const notremovedModal: ModalStructure = {
   isError: true,
-  image: "src/images/error-icon.svg",
-  text: "Plant could not be removed",
+  message: "Plant could not be removed",
 };
 
-export const wrongCredential: ModalProps = {
+export const wrongCredential: ModalStructure = {
   isError: true,
-  image: "src/images/error-icon.svg",
-  text: "Invalid credentials, Please try again",
+  message: "Invalid credentials, Please try again",
 };

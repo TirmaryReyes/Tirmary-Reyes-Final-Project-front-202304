@@ -3,6 +3,7 @@ import { UiStructure } from "./types";
 
 const initialUiState: UiStructure = {
   isLoading: false,
+  modal: undefined,
 };
 
 const uiSlice = createSlice({
