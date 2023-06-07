@@ -1,11 +1,10 @@
 export interface UiStructure {
   isLoading: boolean;
-  modal?: ModalStructure;
+  modal: ModalStructure;
 }
 
 export interface ModalStructure {
-  message?: string;
-  image?: string;
-  isError?: boolean;
-  isVisible?: boolean;
+  message: string;
+  isError: boolean;
+  isVisible: boolean;
 }

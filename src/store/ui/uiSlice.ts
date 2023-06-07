@@ -6,7 +6,6 @@ const initialUiState: UiStructure = {
   modal: {
     isError: false,
     message: "",
-    image: "",
     isVisible: false,
   },
 };
@@ -47,6 +46,8 @@ const uiSlice = createSlice({
 export const {
   showLoading: showLoadingActionCreator,
   hideLoading: hideLoadingActionCreator,
+  hideFeedback: hideFeedbackActionCreator,
+  showFeedback: showFeedbackActionCreator,
 } = uiSlice.actions;
 
 export const uiReducer = uiSlice.reducer;

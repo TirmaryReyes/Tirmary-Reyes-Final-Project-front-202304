@@ -1,15 +1,17 @@
-import { ModalStructure } from "../../store/ui/types";
+import { useAppSelector } from "../../store";
 import { ModalStyled } from "./ModalStyled";
 
-const Modal = ({ message, isError }: ModalStructure): React.ReactElement => {
+const Modal = (): React.ReactElement => {
+  const { modal } = useAppSelector((state) => state.ui);
+
   return (
     <ModalStyled>
-      <div className={`modal modal${isError ? "--error" : "--success"}`}>
+      <div className={`modal modal${modal.isError ? "--error" : "--success"}`}>
         <img
-          src={isError ? "images/error-icon.svg" : "images/ok-icon.svg"}
+          src={modal.isError ? "images/error-icon.svg" : "images/ok-icon.svg"}
           alt="feedback icon"
         />
-        <span className="modal__message">{message}</span>
+        <span className="modal__message">{modal.message}</span>
 
         <button className="modal__button">Close</button>
       </div>

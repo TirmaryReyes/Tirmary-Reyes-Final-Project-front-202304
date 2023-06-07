@@ -19,7 +19,10 @@ describe("Given a Layout component", () => {
       const expectedLabelText = "custom-loader";
 
       renderWithProviders(wrapWithRouter(<Layout />), {
-        ui: { isLoading: true },
+        ui: {
+          isLoading: true,
+          modal: { isError: false, message: "", isVisible: false },
+        },
       });
 
       const loadingSpinner = screen.getByLabelText(expectedLabelText);

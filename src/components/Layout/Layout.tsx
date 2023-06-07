@@ -7,12 +7,12 @@ import Modal from "../Modal/Modal";
 
 const Layout = (): React.ReactElement => {
   const isLoading = useAppSelector((state) => state.ui.isLoading);
-  const isVisible = useAppSelector((state) => state.ui.modal?.isVisible);
+  const isVisible = useAppSelector((state) => state.ui.modal.isVisible);
 
   return (
     <>
       {isLoading && <Loader />}
-      {isVisible && <Modal message={""} isError={false} isVisible={false} />}
+      {isVisible && <Modal />}
       <LayoutStyled>
         <Header />
         <Outlet />
