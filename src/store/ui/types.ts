@@ -4,7 +4,8 @@ export interface UiStructure {
 }
 
 export interface ModalStructure {
-  message: string;
+  message?: string;
   image?: string;
-  isError: boolean;
+  isError?: boolean;
+  isVisible?: boolean;
 }
