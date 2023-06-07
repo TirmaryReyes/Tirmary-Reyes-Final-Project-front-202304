@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const LoginFormStyled = styled.form`
+  width: 300px;
   height: 300px;
   display: flex;
   flex-direction: column;
