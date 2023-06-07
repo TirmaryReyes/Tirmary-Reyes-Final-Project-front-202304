@@ -1,6 +1,18 @@
 import styled from "styled-components";
 
 export const ModalStyled = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: rgb(228 234 228 / 78%);
+
   .modal {
     display: flex;
     flex-direction: column;
