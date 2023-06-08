@@ -6,14 +6,18 @@ import { apiUrl } from "../useUser/useUser";
 import { useAppDispatch, useAppSelector } from "../../store";
 import {
   hideLoadingActionCreator,
+  showFeedbackActionCreator,
   showLoadingActionCreator,
 } from "../../store/ui/uiSlice";
+import { listUnavailable } from "../../components/Modal/feedback";
 
 const usePlant = () => {
   const { token } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
 
-  const getPlants = useCallback(async (): Promise<PlantDataStructure[]> => {
+  const getPlants = useCallback(async (): Promise<
+    PlantDataStructure[] | undefined
+  > => {
     try {
       dispatch(showLoadingActionCreator());
 
@@ -30,6 +34,14 @@ const usePlant = () => {
 
       return plants;
     } catch {
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          isVisible: true,
+          message: listUnavailable.message,
+        })
+      );
       throw new Error("Can't get the list of plants");
     }
   }, [dispatch, token]);

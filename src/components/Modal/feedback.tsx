@@ -41,3 +41,9 @@ export const wrongCredential: ModalStructure = {
   message: "Invalid credentials, Please try again",
   isVisible: false,
 };
+
+export const listUnavailable: ModalStructure = {
+  isError: true,
+  message: "Can't get the list of plants",
+  isVisible: false,
+};

@@ -14,6 +14,7 @@ describe("Given a Layout component", () => {
       expect(altText).toBeInTheDocument();
     });
   });
+
   describe("When it's being rendered, but it's experiencing significant delays in reaching the intended page", () => {
     test("Then it should show a custom-loader", () => {
       const expectedLabelText = "custom-loader";
@@ -28,6 +29,25 @@ describe("Given a Layout component", () => {
       const loadingSpinner = screen.getByLabelText(expectedLabelText);
 
       expect(loadingSpinner).toBeInTheDocument();
+    });
+  });
+
+  describe("When it's being rendered, but you write something wrong", () => {
+    test("Then it should show Close", () => {
+      const expectedLabelText = "Close";
+
+      renderWithProviders(wrapWithRouter(<Layout />), {
+        ui: {
+          isLoading: true,
+          modal: { isError: false, message: "", isVisible: true },
+        },
+      });
+
+      const button = screen.getByRole("button", {
+        name: expectedLabelText,
+      });
+
+      expect(button).toBeInTheDocument();
     });
   });
 });

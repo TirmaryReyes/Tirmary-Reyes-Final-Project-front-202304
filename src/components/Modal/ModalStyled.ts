@@ -11,7 +11,7 @@ export const ModalStyled = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: rgb(228 234 228 / 78%);
+  background-color: ${(props) => props.theme.colors.primaryLight};
 
   .modal {
     display: flex;
