@@ -12,7 +12,18 @@ const PlantsPage = (): React.ReactElement => {
   useEffect(() => {
     (async () => {
       const plants = await getPlants();
-      if (plants) dispatch(loadPlantsActionCreator(plants));
+      if (plants) {
+        dispatch(loadPlantsActionCreator(plants));
+
+        const preconnectElement = await document.createElement("link");
+        preconnectElement.rel = "preload";
+        preconnectElement.as = "image";
+        preconnectElement.href = plants[0].image;
+
+        const parent = document.head;
+        const firstChild = document.head.firstChild;
+        parent.insertBefore(preconnectElement, firstChild);
+      }
     })();
   }, [dispatch, getPlants]);
 
