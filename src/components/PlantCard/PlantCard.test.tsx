@@ -8,7 +8,14 @@ describe("Given a PlantCard component", () => {
     test("Then it should show a plant's image", () => {
       const expectAltTextImage = plantsMocks[0].name;
 
-      renderWithProviders(wrapWithRouter(<PlantCard plant={plantsMocks[0]} />));
+      renderWithProviders(
+        wrapWithRouter(
+          <PlantCard
+            plant={plantsMocks[0]}
+            isLazy={plantsMocks.indexOf(plantsMocks[0]) < 1 ? "eager" : "lazy"}
+          />
+        )
+      );
       const expectedImage = screen.getByRole("img", {
         name: expectAltTextImage,
       });

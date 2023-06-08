@@ -7,9 +7,9 @@ const PlantsList = (): React.ReactElement => {
 
   return (
     <PlantsListStyled>
-      {plants.map((plant) => (
+      {plants.map((plant, index) => (
         <li key={plant.id}>
-          <PlantCard plant={plant} />
+          <PlantCard isLazy={index < 1 ? "eager" : "lazy"} plant={plant} />
         </li>
       ))}
     </PlantsListStyled>
