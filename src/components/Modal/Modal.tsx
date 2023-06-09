@@ -18,7 +18,6 @@ const Modal = (): React.ReactElement => {
           alt="feedback icon"
         />
         <span className="modal__message">{message}</span>
-
         <button className="modal__button" onClick={handleOnClose}>
           Close
         </button>
