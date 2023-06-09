@@ -14,5 +14,5 @@ export interface PlantApiStructure {
 }
 
 export interface PlantIdStructure {
-  idPLant: string;
+  idPlant: string;
 }

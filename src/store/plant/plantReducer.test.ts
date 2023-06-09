@@ -3,8 +3,9 @@ import {
   PlantState,
   loadPlantsActionCreator,
   plantReducer,
+  removePlantActionCreator,
 } from "./plantSlice";
-import { PlantDataStructure } from "./types";
+import { PlantApiStructure, PlantDataStructure } from "./types";
 
 describe("Given an userReducer", () => {
   describe("When it receives an empty initial state and a loadPlants action", () => {
@@ -23,6 +24,28 @@ describe("Given an userReducer", () => {
       const newState: PlantState = plantReducer(currentState, plants);
 
       expect(expectedNewPlantsState).toStrictEqual(newState);
+    });
+  });
+});
+
+describe("Given a deletePlant reducer", () => {
+  describe("When it has a list of plants as a current state and it receives a valid plant id", () => {
+    test("Then it should return a new list without the plant linked to the id", () => {
+      const currentPlant: PlantApiStructure = {
+        plants: plantsMocks,
+      };
+
+      const expectedNewPlantState = {
+        ...currentPlant,
+        plants: plantsMocks.slice(0, 1),
+      };
+
+      const newPlantState = plantReducer(
+        currentPlant,
+        removePlantActionCreator({ idPlant: "647083660ca1f98975830bmmm0b" })
+      );
+
+      expect(newPlantState).toStrictEqual(expectedNewPlantState);
     });
   });
 });

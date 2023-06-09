@@ -31,7 +31,7 @@ const plantSlice = createSlice({
     ): PlantApiStructure => ({
       ...currentPlant,
       plants: currentPlant.plants.filter(
-        (plant) => plant.id !== action.payload.idPLant
+        (plant) => plant.id !== action.payload.idPlant
       ),
     }),
   },
