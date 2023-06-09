@@ -5,11 +5,13 @@ import PlantCardStyled from "./PlantCardStyled";
 interface PlantsCardProps {
   plant: PlantDataStructure;
   isLazy?: "eager" | "lazy";
+  actionOnclick: (idPlant: string) => void;
 }
 
 export const PlantCard = ({
   plant,
   isLazy,
+  actionOnclick,
 }: PlantsCardProps): React.ReactElement => {
   return (
     <PlantCardStyled>
@@ -30,7 +32,12 @@ export const PlantCard = ({
           height={28}
         />
       </Button>
-      <Button className="plant-card__button-delete" text={""}>
+      <Button
+        className="plant-card__button-delete"
+        accesibility="delete"
+        text=""
+        onClick={() => actionOnclick(plant.id)}
+      >
         <img
           className="plant-card__delete"
           src="images/button-delete.svg"

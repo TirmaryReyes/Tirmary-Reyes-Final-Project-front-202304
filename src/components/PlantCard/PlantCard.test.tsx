@@ -11,6 +11,7 @@ describe("Given a PlantCard component", () => {
       renderWithProviders(
         wrapWithRouter(
           <PlantCard
+            actionOnclick={() => ({})}
             plant={plantsMocks[0]}
             isLazy={plantsMocks.indexOf(plantsMocks[0]) < 1 ? "eager" : "lazy"}
           />
