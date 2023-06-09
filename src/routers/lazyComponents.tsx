@@ -5,3 +5,7 @@ export const LazyLoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
 export const LazyPlantsList = lazy(
   () => import("../pages/PlantsPage/PlantsPage")
 );
+
+export const LazyNotFoundPage = lazy(
+  () => import("../pages/NotFoundPage/NotFoundPage")
+);

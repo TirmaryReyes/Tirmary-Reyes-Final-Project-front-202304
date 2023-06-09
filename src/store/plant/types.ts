@@ -8,3 +8,11 @@ export interface PlantDataStructure {
   environment: string;
   description: string;
 }
+
+export interface PlantApiStructure {
+  plants: PlantDataStructure[];
+}
+
+export interface PlantIdStructure {
+  idPlant: string;
+}
