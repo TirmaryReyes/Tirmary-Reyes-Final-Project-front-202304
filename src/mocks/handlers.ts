@@ -14,12 +14,14 @@ export const handlers = [
     return res(ctx.status(200), ctx.json({ plants: plantsMocks }));
   }),
 
-  rest.delete(
-    `${apiUrl}${paths.plants}/${plantsMocks[0].id}`,
-    (_req, res, ctx) => {
-      return res(ctx.status(200));
-    }
-  ),
+  rest.delete(`${apiUrl}${paths.plants}/*`, (_req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        message: "Plant removed",
+      })
+    );
+  }),
 ];
 
 export const errorHandlers = [
@@ -27,10 +29,12 @@ export const errorHandlers = [
     return res(ctx.status(401));
   }),
 
-  rest.delete(
-    `${apiUrl}${paths.plants}/${plantsMocks[0].id}`,
-    (_req, res, ctx) => {
-      return res(ctx.status(200));
-    }
-  ),
+  rest.delete(`${apiUrl}${paths.plants}/*`, (_req, res, ctx) => {
+    return res(
+      ctx.status(404),
+      ctx.json({
+        message: "Plant could not be removed",
+      })
+    );
+  }),
 ];

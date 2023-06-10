@@ -1,7 +1,6 @@
 import usePlant from "../../hooks/usePlant/usePlant";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { removePlantActionCreator } from "../../store/plant/plantSlice";
-
 import { PlantCard } from "../PlantCard/PlantCard";
 import PlantsListStyled from "./PlantsListStyled";
 

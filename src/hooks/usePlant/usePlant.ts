@@ -65,7 +65,6 @@ const usePlant = () => {
           message: removedModal.message,
         })
       );
-      return 200;
     } catch (error) {
       dispatch(hideLoadingActionCreator());
 
