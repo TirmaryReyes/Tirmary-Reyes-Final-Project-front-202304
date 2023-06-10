@@ -30,7 +30,7 @@ export const notEditModal: ModalStructure = {
   isVisible: false,
 };
 
-export const notremovedModal: ModalStructure = {
+export const notRemovedModal: ModalStructure = {
   isError: true,
   message: "Plant could not be removed",
   isVisible: false,

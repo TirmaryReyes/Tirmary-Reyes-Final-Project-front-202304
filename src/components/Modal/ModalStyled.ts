@@ -12,6 +12,7 @@ export const ModalStyled = styled.div`
   align-items: center;
   height: 100%;
   background-color: ${(props) => props.theme.colors.primaryLight};
+  z-index: 1;
 
   .modal {
     display: flex;
