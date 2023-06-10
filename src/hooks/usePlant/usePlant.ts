@@ -9,7 +9,12 @@ import {
   showFeedbackActionCreator,
   showLoadingActionCreator,
 } from "../../store/ui/uiSlice";
-import { listUnavailable } from "../../components/Modal/feedback";
+import {
+  listUnavailable,
+  notRemovedModal,
+  removedModal,
+} from "../../components/Modal/feedback";
+import paths from "../../routers/paths";
 
 const usePlant = () => {
   const { token } = useAppSelector((state) => state.user);
@@ -45,7 +50,34 @@ const usePlant = () => {
       throw new Error("Can't get the list of plants");
     }
   }, [dispatch, token]);
-  return { getPlants };
+
+  const deletePlant = async (idPlant: string) => {
+    try {
+      dispatch(showLoadingActionCreator());
+
+      await axios.delete(`${apiUrl}${paths.plants}/${idPlant}`);
+
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          isError: false,
+          isVisible: true,
+          message: removedModal.message,
+        })
+      );
+    } catch (error) {
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          isVisible: true,
+          message: notRemovedModal.message,
+        })
+      );
+    }
+  };
+  return { getPlants, deletePlant };
 };
 
 export default usePlant;
