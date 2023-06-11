@@ -3,6 +3,7 @@ const paths = {
   login: "/login",
   home: "/home",
   plants: "/plants",
+  add: "/add",
 };
 
 export default paths;
