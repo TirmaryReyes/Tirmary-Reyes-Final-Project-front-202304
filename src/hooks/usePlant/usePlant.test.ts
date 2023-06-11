@@ -66,8 +66,8 @@ describe("Given a deletePlant function", () => {
       expect(response).toBeUndefined();
     });
 
-    describe("When it invoked with a valid figure id", () => {
-      test("Then it should show a modal with the text 'The figure has been successfully removed from the favorites list'", async () => {
+    describe("When it invoked with a valid plant id", () => {
+      test("Then it should show a modal with the text 'Plant removed'", async () => {
         server.resetHandlers(...handlers);
 
         const id = plantsMocks[0].id;
@@ -87,7 +87,7 @@ describe("Given a deletePlant function", () => {
     });
 
     describe("When it invoked with a non-existent plant id", () => {
-      test("Then it should show a modal with the text 'It has not been possible to remove the figure from the list'", async () => {
+      test("Then it should show a modal with the text 'Plant could not be removed'", async () => {
         server.resetHandlers(...errorHandlers);
 
         const id = plantsMocks[0].id;

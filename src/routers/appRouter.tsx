@@ -7,6 +7,7 @@ import {
   LazyNotFoundPage,
   LazyPlantsList,
 } from "./lazyComponents";
+import AddPlantPage from "../pages/AddPlantPage/AddPlantPage";
 
 const routes: RouteObject[] = [
   {
@@ -33,6 +34,10 @@ const routes: RouteObject[] = [
             <LazyPlantsList />
           </Suspense>
         ),
+      },
+      {
+        path: `${paths.add}`,
+        element: <AddPlantPage />,
       },
       {
         path: `*`,
