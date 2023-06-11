@@ -1,11 +1,11 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders, wrapWithRouter } from "../../testUtils/testUtils";
-import AddPlantForm from "./AddPlantForm";
+import PlantForm from "./PlantForm";
 
 describe("Given a AddPlantForm component", () => {
   describe("When it is rendered", () => {
     test("Then it should show a button with a text that says 'Create'", () => {
-      renderWithProviders(wrapWithRouter(<AddPlantForm />));
+      renderWithProviders(wrapWithRouter(<PlantForm />));
 
       const expectedText = "Create";
 
