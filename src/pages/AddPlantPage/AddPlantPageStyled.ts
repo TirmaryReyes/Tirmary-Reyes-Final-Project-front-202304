@@ -6,7 +6,6 @@ const AddPlantStyled = styled.main`
   font-weight: bold;
   color: ${(props) => props.theme.colors.primary};
   padding: 10px;
-  border-bottom: 1px solid ${(props) => props.theme.colors.primary};
   width: 150px;
 `;
 
