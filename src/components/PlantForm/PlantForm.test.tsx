@@ -1,17 +1,26 @@
 import { screen } from "@testing-library/react";
-import { renderWithProviders, wrapWithRouter } from "../../testUtils/testUtils";
+import { renderWithProviders } from "../../testUtils/testUtils";
 import PlantForm from "./PlantForm";
 
-describe("Given a AddPlantForm component", () => {
-  describe("When it is rendered", () => {
-    test("Then it should show a button with a text that says 'Create'", () => {
-      renderWithProviders(wrapWithRouter(<PlantForm />));
+const plantFormLabels = [
+  "Name",
+  "URL image",
+  "Type",
+  "Size",
+  "Has Flowers",
+  "Environment",
+  "Description",
+];
 
-      const expectedText = "Create";
+describe("Given a AddForm component", () => {
+  plantFormLabels.forEach((expectedText) => {
+    describe("When it was rendered", () => {
+      test(`Then it should show a text field with the label '${expectedText}'`, () => {
+        renderWithProviders(<PlantForm />);
+        const textField = screen.getByLabelText(expectedText);
 
-      const title = screen.getByRole("button", { name: expectedText });
-
-      expect(title).toBeInTheDocument();
+        expect(textField).toBeInTheDocument();
+      });
     });
   });
 });
