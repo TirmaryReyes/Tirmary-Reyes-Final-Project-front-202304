@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useCallback } from "react";
 import { PlantState } from "../../store/plant/plantSlice";
-import { PlantDataStructure } from "../../store/plant/types";
+import { PlantDataStructure, PlantStructure } from "../../store/plant/types";
 import { apiUrl } from "../useUser/useUser";
 import { useAppDispatch, useAppSelector } from "../../store";
 import {
@@ -10,7 +10,9 @@ import {
   showLoadingActionCreator,
 } from "../../store/ui/uiSlice";
 import {
+  addedModal,
   listUnavailable,
+  notAddedModal,
   notRemovedModal,
   removedModal,
 } from "../../components/Modal/feedback";
@@ -20,21 +22,21 @@ const usePlant = () => {
   const { token } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
 
+  const req = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   const getPlants = useCallback(async (): Promise<
     PlantDataStructure[] | undefined
   > => {
     try {
       dispatch(showLoadingActionCreator());
 
-      const req = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-
       const {
         data: { plants },
-      } = await axios.get<PlantState>(`${apiUrl}/plants`, req);
+      } = await axios.get<PlantState>(`${apiUrl}/plants`);
       dispatch(hideLoadingActionCreator());
 
       return plants;
@@ -49,7 +51,7 @@ const usePlant = () => {
       );
       throw new Error("Can't get the list of plants");
     }
-  }, [dispatch, token]);
+  }, [dispatch]);
 
   const deletePlant = async (idPlant: string) => {
     try {
@@ -77,7 +79,45 @@ const usePlant = () => {
       );
     }
   };
-  return { getPlants, deletePlant };
+
+  const addPlant = async (
+    plantData: PlantStructure
+  ): Promise<PlantDataStructure | undefined> => {
+    try {
+      dispatch(showLoadingActionCreator());
+
+      const {
+        data: { plant },
+      } = await axios.post<{ plant: PlantDataStructure }>(
+        `${apiUrl}${paths.plants}/add`,
+        { plantData },
+        req
+      );
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(
+        showFeedbackActionCreator({
+          isError: false,
+          isVisible: true,
+          message: addedModal.message,
+        })
+      );
+
+      return plant;
+    } catch (error) {
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          isVisible: true,
+          message: notAddedModal.message,
+        })
+      );
+    }
+  };
+
+  return { getPlants, deletePlant, addPlant };
 };
 
 export default usePlant;

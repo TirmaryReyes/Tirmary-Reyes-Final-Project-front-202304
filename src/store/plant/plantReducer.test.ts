@@ -1,6 +1,7 @@
 import { plantsMocks } from "../../mocks/plantsMocks";
 import {
   PlantState,
+  addPlantActionCreator,
   loadPlantsActionCreator,
   plantReducer,
   removePlantActionCreator,
@@ -46,6 +47,21 @@ describe("Given a deletePlant reducer", () => {
       );
 
       expect(newPlantState).toStrictEqual(expectedNewPlantState);
+    });
+  });
+
+  describe("When it receives a list of plants and a new plant and it's data", () => {
+    test("Then it should return a new state of the list with the new plant that was created", () => {
+      const currentPlantState: PlantApiStructure = {
+        plants: [plantsMocks[0]],
+      };
+
+      const newAnimalState: PlantApiStructure = plantReducer(
+        currentPlantState,
+        addPlantActionCreator(plantsMocks[1])
+      );
+
+      expect(newAnimalState).toStrictEqual({ plants: plantsMocks });
     });
   });
 });

@@ -34,11 +34,20 @@ const plantSlice = createSlice({
         (plant) => plant.id !== action.payload.idPlant
       ),
     }),
+
+    addPlant: (
+      currentPlantState: PlantApiStructure,
+      action: PayloadAction<PlantDataStructure>
+    ): PlantApiStructure => ({
+      ...currentPlantState,
+      plants: [...currentPlantState.plants, action.payload],
+    }),
   },
 });
 
 export const {
   loadPlants: loadPlantsActionCreator,
   removePlant: removePlantActionCreator,
+  addPlant: addPlantActionCreator,
 } = plantSlice.actions;
 export const plantReducer = plantSlice.reducer;

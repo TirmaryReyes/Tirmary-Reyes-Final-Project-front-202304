@@ -40,7 +40,7 @@ button {
   background-color: transparent;
 }
 
-input {
+input, textarea {
   font: inherit;
   border: none;
 }

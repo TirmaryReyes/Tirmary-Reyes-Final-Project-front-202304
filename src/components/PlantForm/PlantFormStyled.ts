@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const AddPlantFormStyled = styled.form`
+const PlantFormStyled = styled.form`
   gap: 20px;
   font-size: 15px;
   width: 300px;
@@ -35,6 +35,14 @@ const AddPlantFormStyled = styled.form`
       width: 267px;
     }
 
+    &__description {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 15px;
+      border: 2px solid ${(props) => props.theme.colors.primary};
+      width: 267px;
+      height: 110px;
+    }
     &__environment {
       width: 260px;
       height: 30px;
@@ -68,4 +76,4 @@ const AddPlantFormStyled = styled.form`
     }
   }
 `;
-export default AddPlantFormStyled;
+export default PlantFormStyled;
