@@ -5,20 +5,21 @@ import { useAppDispatch } from "../../store";
 import { addPlantActionCreator } from "../../store/plant/plantSlice";
 import AddPlantStyled from "./AddPlantPageStyled";
 import paths from "../../routers/paths";
-import { PlantDataStructure } from "../../store/plant/types";
+import { PlantStructure } from "../../store/plant/types";
 
 const AddPlantPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
   const { addPlant } = usePlant();
   const navigate = useNavigate();
 
-  const submitPlantForm = async (plantData: Partial<PlantDataStructure>) => {
+  const submitPlantForm = async (plantData: PlantStructure) => {
     const newPlant = await addPlant(plantData);
 
-    if (newPlant) {
-      dispatch(addPlantActionCreator(newPlant));
-      navigate(paths.home);
+    if (!newPlant) {
+      return;
     }
+    dispatch(addPlantActionCreator(newPlant));
+    navigate(paths.home);
   };
 
   return (

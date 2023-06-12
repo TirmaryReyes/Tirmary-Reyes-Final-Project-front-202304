@@ -1,13 +1,17 @@
 import { renderHook } from "@testing-library/react";
-import { plantsMocks } from "../../mocks/plantsMocks";
+import { anotherPlant, onePLant, plantsMocks } from "../../mocks/plantsMocks";
 import usePlant from "./usePlant";
 import { wrapper } from "../../testUtils/testUtils";
 import { PlantDataStructure } from "../../store/plant/types";
 import { server } from "../../mocks/server";
-import { errorHandlers, handlers } from "../../mocks/handlers";
+import { errorHandlers } from "../../mocks/handlers";
 import { vi } from "vitest";
 import { store } from "../../store";
-import { notRemovedModal, removedModal } from "../../components/Modal/feedback";
+import {
+  notAddedModal,
+  notRemovedModal,
+  removedModal,
+} from "../../components/Modal/feedback";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -68,8 +72,6 @@ describe("Given a deletePlant function", () => {
 
     describe("When it invoked with a valid plant id", () => {
       test("Then it should show a modal with the text 'Plant removed'", async () => {
-        server.resetHandlers(...handlers);
-
         const id = plantsMocks[0].id;
 
         const {
@@ -104,6 +106,40 @@ describe("Given a deletePlant function", () => {
 
         expect(message).toBe(notRemovedModal.message);
       });
+    });
+  });
+});
+
+describe("Given a addPlants function", () => {
+  describe("When it's called with a new plant data like a plant 'Aloe Vera'", () => {
+    test("Then it should return the card of the new plant 'Aloe Vera'", async () => {
+      const expectedNewPlant = onePLant;
+      const {
+        result: {
+          current: { addPlant },
+        },
+      } = renderHook(() => usePlant(), { wrapper: wrapper });
+
+      const response = await addPlant(anotherPlant);
+
+      expect(response).toStrictEqual(expectedNewPlant);
+    });
+  });
+
+  describe("When it's called but there was problem on adding", () => {
+    test("Then it should show a feedback message with the text 'Plant could not be added'", async () => {
+      server.resetHandlers(...errorHandlers);
+      const {
+        result: {
+          current: { addPlant },
+        },
+      } = renderHook(() => usePlant(), { wrapper: wrapper });
+
+      await addPlant(onePLant);
+
+      const message = store.getState().ui.modal.message;
+
+      expect(message).toBe(notAddedModal.message);
     });
   });
 });

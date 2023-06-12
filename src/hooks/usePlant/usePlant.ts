@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useCallback } from "react";
 import { PlantState } from "../../store/plant/plantSlice";
-import { PlantDataStructure } from "../../store/plant/types";
+import { PlantDataStructure, PlantStructure } from "../../store/plant/types";
 import { apiUrl } from "../useUser/useUser";
 import { useAppDispatch, useAppSelector } from "../../store";
 import {
@@ -81,17 +81,19 @@ const usePlant = () => {
   };
 
   const addPlant = async (
-    plantData: PlantDataStructure
+    plantData: PlantStructure
   ): Promise<PlantDataStructure | undefined> => {
-    dispatch(showLoadingActionCreator());
     try {
-      dispatch(hideLoadingActionCreator());
+      dispatch(showLoadingActionCreator());
 
-      const { data } = await axios.post<{ plant: PlantDataStructure }>(
+      const {
+        data: { plant },
+      } = await axios.post<{ plant: PlantDataStructure }>(
         `${apiUrl}${paths.plants}/add`,
-        plantData,
+        { plantData },
         req
       );
+      dispatch(hideLoadingActionCreator());
 
       dispatch(
         showFeedbackActionCreator({
@@ -101,7 +103,7 @@ const usePlant = () => {
         })
       );
 
-      return data.plant;
+      return plant;
     } catch (error) {
       dispatch(hideLoadingActionCreator());
 

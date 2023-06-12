@@ -2,8 +2,12 @@ import { useState } from "react";
 import { PlantStructure } from "../../store/plant/types";
 import PlantFormStyled from "./PlantFormStyled";
 
-const PlantForm = (): React.ReactElement => {
-  const initialPlantState: PlantStructure = {
+interface PlantFormProps {
+  submitPlantForm: (plantData: PlantStructure) => void;
+}
+
+const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
+  const initialPlantData: PlantStructure = {
     name: "",
     image: "",
     type: "",
@@ -13,7 +17,13 @@ const PlantForm = (): React.ReactElement => {
     description: "",
   };
 
-  const [plantData, setPlantData] = useState(initialPlantState);
+  const [plantData, setPlantData] = useState(initialPlantData);
+
+  const handleOnSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    submitPlantForm(plantData);
+    setPlantData(initialPlantData);
+  };
 
   const OnChangeInputs = (
     event: React.ChangeEvent<
@@ -25,6 +35,7 @@ const PlantForm = (): React.ReactElement => {
       [event.target.id]: event.target.value,
     });
   };
+
   const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPlantData({
       ...plantData,
@@ -41,7 +52,7 @@ const PlantForm = (): React.ReactElement => {
     plantData.description !== "";
 
   return (
-    <PlantFormStyled autoComplete="off">
+    <PlantFormStyled autoComplete="off" onSubmit={handleOnSubmit}>
       <div className="add-form-control">
         <label className="add-form-control__label" htmlFor="name">
           Name
@@ -91,13 +102,17 @@ const PlantForm = (): React.ReactElement => {
         />
       </div>
       <div className="add-form-control__has-flowers">
-        <label className="add-form-control__label" htmlFor="checkbox">
+        <label
+          className="add-form-control__label"
+          aria-label="hasFlowers"
+          htmlFor="checkbox"
+        >
           Has Flowers
         </label>
         <input
           type="checkbox"
           className="add-form-control__checkbox"
-          id="checkbox"
+          id="hasFlowers"
           onChange={handleCheckbox}
         />
       </div>
