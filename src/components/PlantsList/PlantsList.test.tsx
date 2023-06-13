@@ -31,7 +31,15 @@ describe("Given a PlantList component", () => {
           plants: plantMock,
         },
       };
-      renderWithProviders(<PlantsList />, plantsStore);
+      renderWithProviders(wrapWithRouter(<PlantsList />), {
+        user: {
+          id: "555083660ca1f98975830aaa",
+          isLogged: true,
+          name: "",
+          token: "",
+        },
+        plants: plantsStore.plants,
+      });
 
       const heading = screen.getByRole("heading", { name: "Aloe Vera" });
       const deleteButton = screen.getByRole("button", { name: "delete" });

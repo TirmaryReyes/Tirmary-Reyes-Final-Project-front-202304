@@ -7,6 +7,7 @@ export interface PlantDataStructure {
   hasFlowers: boolean;
   environment: string;
   description: string;
+  user?: string;
 }
 
 export interface PlantApiStructure {

@@ -22,7 +22,7 @@ const usePlant = () => {
   const { token } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
 
-  const req = {
+  const axiosReqAuthorization = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -57,7 +57,10 @@ const usePlant = () => {
     try {
       dispatch(showLoadingActionCreator());
 
-      await axios.delete(`${apiUrl}${paths.plants}/${idPlant}`);
+      await axios.delete(
+        `${apiUrl}${paths.plants}/${idPlant}`,
+        axiosReqAuthorization
+      );
 
       dispatch(hideLoadingActionCreator());
       dispatch(
@@ -90,8 +93,8 @@ const usePlant = () => {
         data: { plant },
       } = await axios.post<{ plant: PlantDataStructure }>(
         `${apiUrl}${paths.plants}/add`,
-        { plantData },
-        req
+        plantData,
+        axiosReqAuthorization
       );
       dispatch(hideLoadingActionCreator());
 
@@ -117,7 +120,34 @@ const usePlant = () => {
     }
   };
 
-  return { getPlants, deletePlant, addPlant };
+  const getPlant = async (
+    idPlant: string
+  ): Promise<PlantStructure | undefined> => {
+    try {
+      dispatch(showLoadingActionCreator());
+
+      const {
+        data: { plant },
+      } = await axios.get<{
+        plant: PlantStructure;
+      }>(`${apiUrl}/plants/${idPlant}`);
+
+      dispatch(hideLoadingActionCreator());
+
+      return plant;
+    } catch (error) {
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          isVisible: true,
+          message: notAddedModal.message,
+        })
+      );
+    }
+  };
+
+  return { getPlants, deletePlant, addPlant, getPlant };
 };
 
 export default usePlant;

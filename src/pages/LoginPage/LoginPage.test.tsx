@@ -28,8 +28,8 @@ describe("Given a LoginPage component", () => {
     test("Then it should log in the user and redirects him to the '/' path", async () => {
       const usernameText = "Username";
       const passwordText = "Password";
-      const usernameInputText = "Username";
-      const passwordInputText = "Password";
+      const usernameInputText = "Aloe Vera";
+      const passwordInputText = "aloevera";
       const buttonText = "Log in";
 
       const route: RouteObject[] = [

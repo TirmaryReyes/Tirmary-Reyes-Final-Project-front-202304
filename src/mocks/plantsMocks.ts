@@ -39,6 +39,7 @@ export const plantMock: PlantDataStructure[] = [
     environment: "Outdoor",
     description:
       "Thrives in indirect light, well-draining soil, moderate watering.",
+    user: "555083660ca1f98975830aaa",
   },
 ];
 

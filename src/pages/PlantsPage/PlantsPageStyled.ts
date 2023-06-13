@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 const PlantsListStyled = styled.main`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 60px;
   align-items: center;
   color: ${(props) => props.theme.colors.primary};
+  justify-content: center;
 
   .list-title {
     margin-top: 20px;
