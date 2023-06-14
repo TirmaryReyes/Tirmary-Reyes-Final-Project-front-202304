@@ -29,7 +29,7 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
   const isDisabled = userData.username === "" || userData.password === "";
 
   return (
-    <LoginFormStyled onSubmit={handleOnClick}>
+    <LoginFormStyled onSubmit={handleOnClick} autoComplete="off">
       <div className="login-form-control">
         <label className="login-form-control__label" htmlFor="username">
           Username
