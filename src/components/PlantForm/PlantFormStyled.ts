@@ -18,6 +18,7 @@ const PlantFormStyled = styled.form`
       width: 25px;
       height: 25px;
     }
+
     &__label {
       font-weight: 700;
     }
@@ -47,6 +48,7 @@ const PlantFormStyled = styled.form`
       width: 267px;
       height: 110px;
     }
+
     &__environment {
       font-weight: 700;
       width: 260px;
@@ -61,6 +63,7 @@ const PlantFormStyled = styled.form`
       padding: 10px;
       border-radius: 15px;
       border: 2px solid ${(props) => props.theme.colors.primary};
+      font-family: inherit;
     }
   }
   .add-form__button {

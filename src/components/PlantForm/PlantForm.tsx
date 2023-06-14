@@ -64,7 +64,7 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           id="name"
           onChange={OnChangeInputs}
           value={plantData.name}
-          placeholder="Marguerite"
+          placeholder="e.g. Marguerite"
         />
       </div>
       <div className="add-form-control">
@@ -77,7 +77,7 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           id="image"
           onChange={OnChangeInputs}
           value={plantData.image}
-          placeholder="https://i.ibb.co/2jLYRyF/Daisy-Flower.webp"
+          placeholder="e.g. https://i.ibb.co/2jLYRyF/Daisy-Flower.webp"
         />
       </div>
       <div className="add-form-control">
@@ -90,7 +90,7 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           id="type"
           onChange={OnChangeInputs}
           value={plantData.type}
-          placeholder="Leucanthemum vulgare"
+          placeholder="e.g. Leucanthemum vulgare"
         />
       </div>
       <div className="add-form-control">
@@ -103,7 +103,7 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           id="size"
           onChange={OnChangeInputs}
           value={plantData.size}
-          placeholder="Medium"
+          placeholder="e.g. Medium"
         />
       </div>
       <div className="add-form-control__has-flowers">
@@ -116,7 +116,7 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           id="hasFlowers"
           onChange={handleCheckbox}
           checked={plantData.hasFlowers}
-          placeholder=" true"
+          placeholder="e.g. true"
         />
       </div>
       <div className="add-form-control">
@@ -129,7 +129,7 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           onChange={OnChangeInputs}
           value={plantData.environment}
         >
-          <option hidden>type</option>
+          <option hidden>Type</option>
           <option value="Indoor">Indoor</option>
           <option value="Outdoor">Outdoor</option>
         </select>
@@ -144,7 +144,7 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           className="add-form-control__description"
           onChange={OnChangeInputs}
           value={plantData.description}
-          placeholder="Marguerite is a beautiful flowering plant"
+          placeholder="e.g. Marguerite is a beautiful flowering plant"
         ></textarea>
       </div>
 

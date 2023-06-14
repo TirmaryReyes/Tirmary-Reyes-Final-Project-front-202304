@@ -1,13 +1,13 @@
 import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
-import App from "../components/App/App";
+import App from "../../components/App/App";
 import { Suspense } from "react";
-import paths from "./paths";
+import paths from "../paths";
 import {
   LazyAddPlantPage,
   LazyLoginPage,
   LazyNotFoundPage,
   LazyPlantsList,
-} from "./lazyComponents";
+} from "../lazyComponents/lazyComponents";
 
 const routes: RouteObject[] = [
   {
