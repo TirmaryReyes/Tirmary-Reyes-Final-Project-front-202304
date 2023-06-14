@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PlantStructure } from "../../store/plant/types";
 import PlantFormStyled from "./PlantFormStyled";
+import Button from "../Button/ButtonStyled";
 
 interface PlantFormProps {
   submitPlantForm: (plantData: PlantStructure) => void;
@@ -63,10 +64,11 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           id="name"
           onChange={OnChangeInputs}
           value={plantData.name}
+          placeholder="Marguerite"
         />
       </div>
       <div className="add-form-control">
-        <label className="add-form__label" htmlFor="image">
+        <label className="add-form-control__label" htmlFor="image">
           URL image
         </label>
         <input
@@ -75,6 +77,7 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           id="image"
           onChange={OnChangeInputs}
           value={plantData.image}
+          placeholder="https://i.ibb.co/2jLYRyF/Daisy-Flower.webp"
         />
       </div>
       <div className="add-form-control">
@@ -87,6 +90,7 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           id="type"
           onChange={OnChangeInputs}
           value={plantData.type}
+          placeholder="Leucanthemum vulgare"
         />
       </div>
       <div className="add-form-control">
@@ -99,6 +103,7 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           id="size"
           onChange={OnChangeInputs}
           value={plantData.size}
+          placeholder="Medium"
         />
       </div>
       <div className="add-form-control__has-flowers">
@@ -111,6 +116,7 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           id="hasFlowers"
           onChange={handleCheckbox}
           checked={plantData.hasFlowers}
+          placeholder=" true"
         />
       </div>
       <div className="add-form-control">
@@ -123,7 +129,7 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           onChange={OnChangeInputs}
           value={plantData.environment}
         >
-          <option value="">type</option>
+          <option hidden>type</option>
           <option value="Indoor">Indoor</option>
           <option value="Outdoor">Outdoor</option>
         </select>
@@ -138,12 +144,13 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           className="add-form-control__description"
           onChange={OnChangeInputs}
           value={plantData.description}
+          placeholder="Marguerite is a beautiful flowering plant"
         ></textarea>
       </div>
 
-      <button type="submit" className="add-form__button" disabled={!isDisabled}>
+      <Button type="submit" className="add-form__button" disabled={!isDisabled}>
         Create
-      </button>
+      </Button>
     </PlantFormStyled>
   );
 };

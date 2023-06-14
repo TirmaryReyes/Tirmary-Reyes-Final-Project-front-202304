@@ -56,12 +56,12 @@ describe("Given a deletePlant reducer", () => {
         plants: [plantsMocks[0]],
       };
 
-      const newAnimalState: PlantApiStructure = plantReducer(
+      const newPlantState: PlantApiStructure = plantReducer(
         currentPlantState,
         addPlantActionCreator(plantsMocks[1])
       );
 
-      expect(newAnimalState).toStrictEqual({ plants: plantsMocks });
+      expect(newPlantState).toStrictEqual({ plants: plantsMocks });
     });
   });
 });

@@ -74,7 +74,7 @@
 - Receives a collection of Plants
 - if is token renders a list with bottons to delete and modify, if is not token renders a simple list
 - if there is a token renders a button with delete icon
-- Create a deleteAction on click(), that calls deleteAnimal()
+- Create a deleteAction on click(), that calls deletPlant()
 - Create a detailsAction on click() that navigate to detailPage
 - Renders as many PlantCard as Plants are in the collection
 

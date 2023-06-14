@@ -28,7 +28,7 @@ beforeEach(() => {
   vi.clearAllMocks();
 });
 
-describe("Given a getPlants function", () => {
+describe("Given a getPlants custom hooks", () => {
   describe("When is called", () => {
     test("Then it should return a list of plants", async () => {
       const plantList: PlantDataStructure[] = plantsMocks;
@@ -64,7 +64,7 @@ describe("Given a getPlants function", () => {
   });
 });
 
-describe("Given a deletePlant function", () => {
+describe("Given a deletePlant custom hooks", () => {
   const id = plantsMocks[0].id;
   describe("When it's invoked with an plant id ", () => {
     test("Then it should show a feedback modal of succed with 'Plant removed'", async () => {
@@ -121,7 +121,7 @@ describe("Given a deletePlant function", () => {
   });
 });
 
-describe("Given a addPlant function", () => {
+describe("Given a addPlant custom hooks", () => {
   describe("When it's called with a new plant data like a plant 'Aloe Vera'", () => {
     test("Then it should return the card of the new plant 'Aloe Vera'", async () => {
       const expectedNewPlant = onePLant;
@@ -155,9 +155,9 @@ describe("Given a addPlant function", () => {
   });
 });
 
-describe("", () => {
-  describe("When it is called with an invalid microId", () => {
-    test("Then it should show feedback indicating that the micro was delete with the text 'Dang it! The micro could not be deleted.'", async () => {
+describe("Given a getPlant custom hooks", () => {
+  describe("When it is called with an invalid plantId", () => {
+    test("Then it should show feedback indicating that the plant wasn't delete with the text 'Plant could not be removed'", async () => {
       server.resetHandlers(...errorHandlers);
 
       const idPlant = "647f1363442e3dbaa505de59";

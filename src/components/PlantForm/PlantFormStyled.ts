@@ -9,13 +9,17 @@ const PlantFormStyled = styled.form`
   justify-content: space-around;
   align-items: center;
   padding: 20px;
-  margin-top: 15px;
   color: ${(props) => props.theme.colors.primary};
+  margin: 0 auto;
+  font-weight: 400;
 
   .add-form-control {
     &__checkbox {
       width: 25px;
       height: 25px;
+    }
+    &__label {
+      font-weight: 700;
     }
 
     &__has-flowers {
@@ -44,6 +48,7 @@ const PlantFormStyled = styled.form`
       height: 110px;
     }
     &__environment {
+      font-weight: 700;
       width: 260px;
       height: 30px;
       display: flex;
@@ -58,7 +63,6 @@ const PlantFormStyled = styled.form`
       border: 2px solid ${(props) => props.theme.colors.primary};
     }
   }
-
   .add-form__button {
     margin-top: 20px;
     background-color: ${(props) => props.theme.colors.primary};
@@ -71,8 +75,8 @@ const PlantFormStyled = styled.form`
     font-size: 15px;
 
     :disabled {
-      background-color: ${(props) => props.theme.colors.secondaryLigth};
-      border: 2px solid ${(props) => props.theme.colors.secondaryLigth};
+      background-color: ${(props) => props.theme.colors.secondary};
+      border: 2px solid ${(props) => props.theme.colors.secondary};
     }
   }
 `;
