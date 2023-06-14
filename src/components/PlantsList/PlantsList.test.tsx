@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { plantMock, plantsMocks } from "../../mocks/plantsMocks";
+import { newPlantsMock, plantMock } from "../../mocks/plantsMocks";
 import { renderWithProviders, wrapWithRouter } from "../../testUtils/testUtils";
 import PlantsList from "./PlantsList";
 import userEvent from "@testing-library/user-event";
@@ -7,10 +7,10 @@ import userEvent from "@testing-library/user-event";
 describe("Given a PlantList component", () => {
   describe("When it is rendered", () => {
     test("Then it should show one plant card with its name", () => {
-      const expectedText = plantsMocks[0].name;
+      const expectedText = newPlantsMock[0].name;
       const plantsStore = {
         plants: {
-          plants: plantsMocks,
+          plants: newPlantsMock,
         },
       };
 

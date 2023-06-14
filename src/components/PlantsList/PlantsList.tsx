@@ -20,7 +20,7 @@ const PlantsList = (): React.ReactElement => {
       {plants.map((plant, index) => (
         <li key={plant.id}>
           <PlantCard
-            isLazy={index < 1 ? "eager" : "lazy"}
+            isLazy={index < 4 ? "eager" : "lazy"}
             plant={plant}
             actionOnclick={deleteOnClick}
           />

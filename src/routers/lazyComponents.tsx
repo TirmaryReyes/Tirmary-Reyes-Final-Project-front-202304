@@ -9,3 +9,7 @@ export const LazyPlantsList = lazy(
 export const LazyNotFoundPage = lazy(
   () => import("../pages/NotFoundPage/NotFoundPage")
 );
+
+export const LazyAddPlantPage = lazy(
+  () => import("../pages/AddPlantPage/AddPlantPage")
+);

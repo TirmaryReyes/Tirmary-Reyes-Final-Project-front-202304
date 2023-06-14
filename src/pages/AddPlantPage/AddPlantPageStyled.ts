@@ -6,7 +6,14 @@ const AddPlantStyled = styled.main`
   font-weight: bold;
   color: ${(props) => props.theme.colors.primary};
   padding: 10px;
-  width: 150px;
+
+  .add-page {
+    &__title {
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 300px;
+    }
+  }
 `;
 
 export default AddPlantStyled;

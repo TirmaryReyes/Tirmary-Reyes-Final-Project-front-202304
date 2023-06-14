@@ -3,11 +3,11 @@ import App from "../components/App/App";
 import { Suspense } from "react";
 import paths from "./paths";
 import {
+  LazyAddPlantPage,
   LazyLoginPage,
   LazyNotFoundPage,
   LazyPlantsList,
 } from "./lazyComponents";
-import AddPlantPage from "../pages/AddPlantPage/AddPlantPage";
 
 const routes: RouteObject[] = [
   {
@@ -37,7 +37,11 @@ const routes: RouteObject[] = [
       },
       {
         path: `${paths.add}`,
-        element: <AddPlantPage />,
+        element: (
+          <Suspense>
+            <LazyAddPlantPage />
+          </Suspense>
+        ),
       },
       {
         path: `*`,
