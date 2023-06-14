@@ -102,11 +102,7 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
         />
       </div>
       <div className="add-form-control__has-flowers">
-        <label
-          className="add-form-control__label"
-          aria-label="hasFlowers"
-          htmlFor="checkbox"
-        >
+        <label className="add-form-control__label" htmlFor="hasFlowers">
           Has Flowers
         </label>
         <input
@@ -114,21 +110,23 @@ const PlantForm = ({ submitPlantForm }: PlantFormProps): React.ReactElement => {
           className="add-form-control__checkbox"
           id="hasFlowers"
           onChange={handleCheckbox}
+          checked={plantData.hasFlowers}
         />
       </div>
       <div className="add-form-control">
         <label className="add-form-control__environment" htmlFor="environment">
           Environment
-          <select
-            id="environment"
-            className="add-form-control__select"
-            onChange={OnChangeInputs}
-            value={plantData.environment}
-          >
-            <option value="indoor">Indoor</option>
-            <option value="outdoor">Outdoor</option>
-          </select>
         </label>
+        <select
+          id="environment"
+          className="add-form-control__select"
+          onChange={OnChangeInputs}
+          value={plantData.environment}
+        >
+          <option value="">type</option>
+          <option value="Indoor">Indoor</option>
+          <option value="Outdoor">Outdoor</option>
+        </select>
       </div>
       <div className="add-form-control">
         <label className="add-form-control__label" htmlFor="description">

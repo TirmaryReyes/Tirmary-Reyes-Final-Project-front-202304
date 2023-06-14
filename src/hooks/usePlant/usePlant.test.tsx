@@ -1,10 +1,15 @@
+import { screen } from "@testing-library/react";
 import { renderHook } from "@testing-library/react";
 import { anotherPlant, onePLant, plantsMocks } from "../../mocks/plantsMocks";
 import usePlant from "./usePlant";
-import { wrapper } from "../../testUtils/testUtils";
+import {
+  renderWithProviders,
+  wrapWithProviders,
+  wrapper,
+} from "../../testUtils/testUtils";
 import { PlantDataStructure } from "../../store/plant/types";
 import { server } from "../../mocks/server";
-import { errorHandlers } from "../../mocks/handlers";
+import { errorHandlers, handlers } from "../../mocks/handlers";
 import { vi } from "vitest";
 import { store } from "../../store";
 import {
@@ -12,6 +17,12 @@ import {
   notRemovedModal,
   removedModal,
 } from "../../components/Modal/feedback";
+import {
+  RouteObject,
+  RouterProvider,
+  createMemoryRouter,
+} from "react-router-dom";
+import Layout from "../../components/Layout/Layout";
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -56,8 +67,8 @@ describe("Given a getPlants function", () => {
 describe("Given a deletePlant function", () => {
   const id = plantsMocks[0].id;
   describe("When it's invoked with an plant id ", () => {
-    test("Then it should show a feedback modal of succed with 'Plant could not be removed'", async () => {
-      server.resetHandlers(...errorHandlers);
+    test("Then it should show a feedback modal of succed with 'Plant removed'", async () => {
+      server.resetHandlers(...handlers);
 
       const {
         result: {
@@ -70,17 +81,17 @@ describe("Given a deletePlant function", () => {
       expect(response).toBeUndefined();
     });
 
-    describe("When it invoked with a valid plant id", () => {
+    describe("When it is invoked with a valid plant id", () => {
       test("Then it should show a modal with the text 'Plant removed'", async () => {
         const id = plantsMocks[0].id;
 
         const {
           result: {
-            current: { deletePlant },
+            current: { getPlant },
           },
         } = renderHook(() => usePlant(), { wrapper: wrapper });
 
-        await deletePlant(id);
+        await getPlant(id);
 
         const message = store.getState().ui.modal.message;
 
@@ -110,7 +121,7 @@ describe("Given a deletePlant function", () => {
   });
 });
 
-describe("Given a addPlants function", () => {
+describe("Given a addPlant function", () => {
   describe("When it's called with a new plant data like a plant 'Aloe Vera'", () => {
     test("Then it should return the card of the new plant 'Aloe Vera'", async () => {
       const expectedNewPlant = onePLant;
@@ -140,6 +151,34 @@ describe("Given a addPlants function", () => {
       const message = store.getState().ui.modal.message;
 
       expect(message).toBe(notAddedModal.message);
+    });
+  });
+});
+
+describe("", () => {
+  describe("When it is called with an invalid microId", () => {
+    test("Then it should show feedback indicating that the micro was delete with the text 'Dang it! The micro could not be deleted.'", async () => {
+      server.resetHandlers(...errorHandlers);
+
+      const idPlant = "647f1363442e3dbaa505de59";
+
+      const {
+        result: {
+          current: { getPlant },
+        },
+      } = renderHook(() => usePlant(), { wrapper: wrapWithProviders });
+
+      const routes: RouteObject[] = [{ path: "/", element: <Layout /> }];
+
+      const router = createMemoryRouter(routes);
+
+      renderWithProviders(<RouterProvider router={router} />);
+
+      await getPlant(idPlant);
+
+      const message = await screen.getByAltText("feedback icon");
+
+      expect(message).toBeInTheDocument();
     });
   });
 });

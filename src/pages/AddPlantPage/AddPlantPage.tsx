@@ -15,11 +15,10 @@ const AddPlantPage = (): React.ReactElement => {
   const submitPlantForm = async (plantData: PlantStructure) => {
     const newPlant = await addPlant(plantData);
 
-    if (!newPlant) {
-      return;
+    if (newPlant) {
+      dispatch(addPlantActionCreator(newPlant));
+      navigate(paths.home);
     }
-    dispatch(addPlantActionCreator(newPlant));
-    navigate(paths.home);
   };
 
   return (

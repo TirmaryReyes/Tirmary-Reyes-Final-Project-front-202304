@@ -47,3 +47,9 @@ export const listUnavailable: ModalStructure = {
   message: "Can't get the list of plants",
   isVisible: false,
 };
+
+export const notLoadedPlant: ModalStructure = {
+  isError: true,
+  message: "N",
+  isVisible: false,
+};

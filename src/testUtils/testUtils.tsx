@@ -46,3 +46,9 @@ export const wrapper = ({
 }: PropsWithChildren): React.ReactElement => {
   return <Provider store={store}>{children}</Provider>;
 };
+
+export const wrapWithProviders = ({
+  children,
+}: PropsWithChildren): React.ReactElement => (
+  <Provider store={store}>{children}</Provider>
+);

@@ -8,6 +8,7 @@ declare module "styled-components" {
       terciary: string;
       primaryLight: string;
       secondaryLigth: string;
+      terciaryLight: string;
     };
 
     fonts: {

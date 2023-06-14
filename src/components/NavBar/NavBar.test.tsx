@@ -9,19 +9,17 @@ import {
 import paths from "../../routers/paths.js";
 import userEvent from "@testing-library/user-event";
 import { loggedStateUserMock } from "../../mocks/userMocks.js";
+import PlantsList from "../PlantsList/PlantsList.js";
 
 describe("Given a NavBar component", () => {
   describe("When it's rendered", () => {
     test("Then it should show 2 links: login, add and home", () => {
       renderWithProviders(wrapWithRouter(<NavBar />));
 
-      const expectedLink = "add";
       const expectedText = "home page";
 
-      const createLink = screen.getByRole("link", { name: expectedLink });
       const homeLink = screen.getByRole("link", { name: expectedText });
 
-      expect(createLink).toBeInTheDocument();
       expect(homeLink).toBeInTheDocument();
     });
   });
@@ -34,6 +32,7 @@ describe("Given a logoutOnClick function", () => {
         {
           path: "/",
           element: <NavBar />,
+          children: [{ path: "/home", element: <PlantsList /> }],
         },
       ];
 

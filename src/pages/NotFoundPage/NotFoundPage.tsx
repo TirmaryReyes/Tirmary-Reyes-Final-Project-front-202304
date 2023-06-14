@@ -10,7 +10,7 @@ const NotFoundPage = (): React.ReactElement => {
       </span>
       <img
         className="page-not-found__image"
-        src="images/img404.svg"
+        src="/images/img404.svg"
         alt="fallen plant"
         width={200}
         height={81}

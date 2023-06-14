@@ -30,8 +30,8 @@ const LoginFormStyled = styled.form`
     font-weight: bold;
 
     :disabled {
-      background-color: ${(props) => props.theme.colors.secondaryLigth};
-      border: 2px solid ${(props) => props.theme.colors.secondaryLigth};
+      background-color: ${(props) => props.theme.colors.secondary};
+      border: 2px solid ${(props) => props.theme.colors.secondary};
     }
   }
 `;

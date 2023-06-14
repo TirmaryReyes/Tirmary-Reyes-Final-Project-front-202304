@@ -8,6 +8,12 @@ const NavBarStyled = styled.nav`
   justify-content: space-between;
   align-items: center;
 
+  .active {
+    .selected {
+      background-color: ${(props) => props.theme.colors.secondaryLigth};
+    }
+  }
+
   .navegation-icon {
     color: ${(props) => props.theme.colors.primary};
     width: 80px;
@@ -15,9 +21,6 @@ const NavBarStyled = styled.nav`
     border-radius: 20px;
     border: 2px solid #215e02;
     padding: 7px;
-  }
-  .navegation-icon__select:active {
-    background-color: #215e02;
   }
 `;
 export default NavBarStyled;
